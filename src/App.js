@@ -31,10 +31,11 @@ class App extends Component {
       }}>
 
         <div style={{width: '50%'}}>
-          <h2 style={{fontSize: '2vw', fontWeight: 'bold'}}>Convert JWP embed code to<br/>compatible Wordpress+InstantArticles embeds</h2>
+          <h2 style={{fontSize: '2vw', fontWeight: 'bold'}}>JWP Converter</h2>
           <div>
             <input
-              style={{margin: '1rem 0', padding: '1.5rem', width: '100%',fontSize: '1vw'}}
+              className="form-control"
+              style={{margin: '0 0 1rem', padding: '1.5rem', width: '100%',fontSize: '1vw'}}
               type="text"
               placeholder="<script src=&quot;https://content.jwplatform.com/players/anIzh238-O5vsTKpz.js&quot;></script>"
               onChange={this.handleInput}
@@ -43,23 +44,36 @@ class App extends Component {
           </div>
           <div>
             <textarea
+              className="form-control"
               name="Text1"
               rows="15"
               placeholder={this.template}
               value={this.state.outputValue}
-              style={{margin: '1rem 0', padding: '1.5rem', width: '100%', fontSize: '1vw'}}
+              style={{margin: '0 0 0.5rem', padding: '1.5rem', width: '100%', fontSize: '1vw'}}
             />
           </div>
-          <div style={{display: this.state.isInputValid ? 'block' : 'none'}}>
+          <div>
             <CopyToClipboard text={this.state.outputValue} onCopy={this.handleCopy}>
-              <button style={{padding: '1rem', width: '100%', backgroundColor: this.state.wasEmbedCodeCopied ? 'rgb(64, 172, 49)' : 'inherit'}}>
-                {this.state.wasEmbedCodeCopied ? <span style={{fontWeight: 'bold', color: '#f0f0f0'}}>COPIED!</span> : 'COPY EMBED CODE'}
+              <button className={`btn btn-lg btn-block ${this.getButtonColor()}`} disabled={this.state.isInputValid ? false : true}>
+                {
+                  this.state.wasEmbedCodeCopied
+                    ? "Copied!"
+                    : this.state.isInputValid
+                      ? "Copy to Clipboard"
+                      : "Input Valid JWP <script>"}
               </button>
             </CopyToClipboard>
           </div>
         </div>
       </div>
     );
+  }
+
+  getButtonColor = () => {
+
+    if (this.state.wasEmbedCodeCopied) return 'btn-success'
+    if (!this.state.isInputValid) return 'btn-outline-primary'
+    if (this.state.isInputValid) return 'btn-primary'
   }
 
   handleInput = (event) => {
