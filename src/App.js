@@ -15,7 +15,7 @@ class App extends Component {
 
   }
 
-  template = '<!-- ▽ JWP EMBED ▽ -->\n<div class="jwp"><div id="00000000"><script src="//content.jwplatform.com/libraries/[VIDEPLAYERID].js"></script><script type="text/javascript"> var vid = jwplayer("00000000"); vid.setup({ file: "//content.jwplatform.com/videos/[VIDEOID].mp4", image: "//content.jwplatform.com/thumbs/[VIDEOID].jpg", advertising: { client: "vast", tag: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/22633255/IA_Video&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url= __referrer__&description_url=__page-url__&correlator=__random-number__" } }); </script></div></div>\n<!-- △ JWP EMBED △ -->\n\n\n'
+  template = '<!-- ▽ JWP EMBED ▽ -->\n<div class="jwp"><div id="00000000"><script src="//content.jwplatform.com/libraries/[VIDEPLAYERID].js"></script><script type="text/javascript"> var vid = jwplayer("00000000"); vid.setup({ file: "//content.jwplatform.com/videos/[VIDEOID].mp4", image: "//content.jwplatform.com/thumbs/[VIDEOID].jpg", advertising: { client: "vast", tag: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/22633255/IA_Video&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=__referrer__&description_url=__page-url__&correlator=__random-number__" } }); </script></div></div>\n<!-- △ JWP EMBED △ -->\n\n\n'
 
   render() {
     return (
